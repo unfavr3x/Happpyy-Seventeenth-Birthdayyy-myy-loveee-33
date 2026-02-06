@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Polu 💖</title>
+
+<style>
+/* ===== BODY ===== */
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', sans-serif;
+  overflow: hidden;
+  color: white;
+  text-align: center;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+  z-index: 2;
+  padding: 20px;
+  max-width: 350px;
+}
+
+/* ===== HEADER ===== */
+h1 {
+  font-size: 2.4rem;
+  margin-bottom: 5px;
+}
+
+#sparkleName {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  animation: sparkle 2s infinite alternate;
+}
+
+@keyframes sparkle {
+  from { text-shadow: 0 0 10px #fff; }
+  to { text-shadow: 0 0 25px #fff, 0 0 40px #ff69b4; }
+}
+
+/* ===== SLIDESHOW PHOTOS ===== */
+.slideshow {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 15px;
+  border: 4px solid white;
+  box-shadow: 0 0 25px rgba(255,255,255,0.8);
+  position: relative;
+}
+
+.slideshow img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  opacity: 0;
+  animation: slide 12s infinite;
+}
+
+.slideshow img:nth-child(1) { animation-delay: 0s; }
+.slideshow img:nth-child(2) { animation-delay: 4s; }
+.slideshow img:nth-child(3) { animation-delay: 8s; }
+
+@keyframes slide {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  30% { opacity: 1; }
+  40% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* ===== ANIMATED CAKE ===== */
+.cake-container {
+  margin: 30px auto;
+  width: 200px;
+  position: relative;
+  cursor: pointer;
+}
+
+.cake-base {
+  width: 200px;
+  height: 100px;
+  background: #ff6f91;
+  border-radius: 15px;
+  position: relative;
+}
+
+.frosting {
+  position: absolute;
+  top: -20px;
+  width: 200px;
+  height: 20px;
+  background: #ffe066;
+  border-radius: 15px 15px 0 0;
+}
+
+.candles .candle {
+  position: absolute;
+  top: -40px;
+  width: 15px;
+  height: 40px;
+  background: #fff;
+  border-radius: 3px;
+}
+
+.flame {
+  position: absolute;
+  top: -15px;
+  left: -5px;
+  width: 25px;
+  height: 25px;
+  background: orange;
+  border-radius: 50%;
+  animation: flicker 0.7s infinite alternate;
+}
+
+@keyframes flicker {
+  0% { transform: scale(1); opacity:1; }
+  50% { transform: scale(1.3); opacity:0.8; }
+  100% { transform: scale(1); opacity:1; }
+}
+
+/* ===== TYPING MESSAGE ===== */
+#typing {
+  font-size: 1.15rem;
+  min-height: 120px;
+  margin-top: 20px;
+}
+
+#finalLine {
+  display: none;
+  font-size: 1.3rem;
+  margin-top: 15px;
+  color: #fff;
+}
+
+/* ===== FLOATING BALLOONS ===== */
+.balloon {
+  position: absolute;
+  background: pink;
+  border-radius: 50%;
+  width: 30px;
+  height: 40px;
+  opacity: 0.9;
+  animation: rise 6s linear infinite;
+}
+
+.balloon::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 10px;
+  background: #d47;
+  left: 50%;
+  bottom: -10px;
+}
+
+@keyframes rise {
+  0% { transform: translateY(100vh); opacity: 1; }
+  100% { transform: translateY(-20vh); opacity: 0; }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 500px) {
+  .slideshow { width: 120px; height: 120px; }
+  .cake-container { width: 150px; }
+  .cake-base { height: 80px; }
+  h1 { font-size: 2rem; }
+  #typing { font-size: 1rem; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Happyyy Birthday 🎂💖</h1>
+  <div id="sparkleName">Disha 💕 (my Polu)</div>
+
+  <div class="slideshow">
+    <img src="photo1.jpg">
+    <img src="photo2.jpg">
+    <img src="photo3.jpg">
+  </div>
+
+  <!-- Animated Cake -->
+  <div class="cake-container" onclick="blowCandle()">
+    <div class="cake-base">
+      <div class="frosting"></div>
+      <div class="candles">
+        <div class="candle"><div class="flame" id="flame1"></div></div>
+        <div class="candle" style="left: 50px;"><div class="flame" id="flame2"></div></div>
+        <div class="candle" style="left: 100px;"><div class="flame" id="flame3"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="typing"></div>
+  <div id="finalLine">I choose you. In every life. Forever. 🌙💍</div>
+</div>
+
+<!-- YouTube Music Embed (Stargirl Interlude) -->
+<div style="display:none;">
+<iframe
+  id="musicIframe"
+  width="0" height="0"
+  src="https://www.youtube.com/embed/TkxVOa6u59M?autoplay=0&loop=1&playlist=TkxVOa6u59M"
+  frameborder="0"
+  allow="autoplay; encrypted-media"
+></iframe>
+</div>
+
+<script>
+// ===== TYPING MESSAGE =====
+const message = `Happyyy Birthday my loveee 💖🎉
+My Polu… my shona, my bacha, my life, my everything.
+You are my home, my peace, my noor-e-jahan ✨
+Your beauty is so adorable, inside and out, it melts my heart every single day.
+I feel blessed beyond words to have you in my life.
+Your role in my life is irreplaceable, inevitable, eternal.
+I want to spend my whole life loving you, choosing you, fighting for you.
+I’ll do everything, absolutely everything, to make you mine forever. 🌙❤️`;
+
+let i = 0;
+function typeText() {
+  if (i < message.length) {
+    document.getElementById("typing").innerHTML += message.charAt(i);
+    i++;
+    setTimeout(typeText, 45);
+  }
+}
+typeText();
+
+// ===== BLOW CANDLES =====
+function blowCandle() {
+  document.getElementById("flame1").style.display = "none";
+  document.getElementById("flame2").style.display = "none";
+  document.getElementById("flame3").style.display = "none";
+  document.getElementById("finalLine").style.display = "block";
+}
+
+// ===== FLOATING BALLOONS =====
+setInterval(() => {
+  const b = document.createElement("div");
+  b.className = "balloon";
+  b.style.left = Math.random()*100 + "vw";
+  b.style.width = 20+Math.random()*20 + "px";
+  b.style.height = 30+Math.random()*20 + "px";
+  document.body.appendChild(b);
+  setTimeout(()=>b.remove(),6000);
+}, 400);
+</script>
+
+</body>
+</html>
